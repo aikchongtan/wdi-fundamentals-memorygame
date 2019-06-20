@@ -1,0 +1,66 @@
+let result; // initialize this variable in block scope of custom function.
+const max = 20;  // initialized a variable that cannot be re-assigned.
+for (let x = 1; x <= max; x += 1) {
+    if (x % 3 === 0 && x % 5 === 0) {
+            result = "fizzbuzz";
+        } else if (x % 3 === 0) {
+            result = "fizz";
+        } else if (x % 5 === 0) {
+            result = "buzz";
+        } else {
+            result = x;
+        }
+        console.log(result);
+}
+
+
+/*
+
+https://medium.com/@LindaVivah/es6-javascript-understanding-let-const-9eba72b22f66
+
+let and const added to framework to resolve hoisting issue i.e., moving to the beginning of a scope.
+
+var for defining a variable in global scope, or locally within a function call.
+
+const declaration creates a read-only reference to a value.  Does not mean it immutable; just it cannot be reassigned. Also, it cannot be redeclared in the same scope.
+
+let and const provide block scope in JavaScript.
+
+Var declared with var cannot have block scope.  var declared inside a block {} can be accessed from outside the block.
+*/
+
+{
+    var x = 2;
+}
+// x can be accessed outside the block scope i.e., {}
+
+
+/*
+Variables declared with let can have block scope.
+But do note, variables declared inside a block {} cannot be accessed from outside the block
+*/
+
+{
+    let x = 2;
+}
+/* x cannot be accessed outside the block. Do not try to redeclared a variable inside a block since it will redeclare the variable outside the block.
+*/
+
+var x = 10; // here x is 10
+{
+    var x = 2; // here x is 2
+}
+// x will now be 2
+
+/*
+Redeclaring a variable using let solve the problem.
+
+!!! Redeclaring a var inside a block will not redeclare the variable outside the block
+*/
+
+var x = 10; // here x is 10
+
+{
+    let x = 2; // here x is 2
+}
+// Calling x will return 10 outside the block above.
